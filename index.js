@@ -26,6 +26,9 @@ let persons = [
     }
 ]
 
+const cors = require('cors')
+app.use(cors())
+
 var morgan = require('morgan')
 morgan.token('body', function (req, res) { return JSON.stringify(req.body) })
 morgan.format('custom', '[custom] :method :url :status :res[content-length] - :response-time ms :body')
