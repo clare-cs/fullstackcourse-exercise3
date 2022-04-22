@@ -26,6 +26,9 @@ let persons = [
     }
 ]
 
+var morgan = require('morgan')
+app.use(morgan('tiny'))
+
 app.get('/', (req, res) => {
     res.send('<h1>Hello World!</h1>')
 })
