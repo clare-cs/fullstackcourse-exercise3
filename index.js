@@ -91,7 +91,12 @@ app.put('/api/persons/:id', (req, res, next) => {
 
     Person.findByIdAndUpdate(req.params.id, person, { new: true, runValidators: true })
         .then(updatePerson => {
-            res.json(updatePerson)
+            if (updatePerson) {
+                res.json(updatePerson)
+            } else {
+                res.status(404).end()
+            }
+
         })
         .catch(error => next(error))
 

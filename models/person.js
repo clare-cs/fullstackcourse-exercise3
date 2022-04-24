@@ -20,7 +20,11 @@ const personSchema = new mongoose.Schema({
     },
     number: {
         type: String,
-        required: true
+        required: true,
+        validate: {
+            validator: v => /^(\d{2}-?\d{6,})|(\d{3}-?\d{5,})$/.test(v),
+            message: 'Please fill in a valid number'
+        }
     }
 })
 
